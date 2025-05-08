@@ -13,7 +13,6 @@ const app = express();
 const server = createServer(app);
 const io = connectToSocket(server);
 
-
 app.set("port", (process.env.PORT || 3001))
 app.use(cors());
 app.use(express.json({ limit: "40kb" }));
@@ -23,19 +22,17 @@ app.get("/", (req, res) => {
     res.send("API is running");
   });
   
+  app.use("/api/v1/users", userRoutes);
 
-app.use("/api/v1/users", userRoutes);
+  const start = async () => {
+      app.set("mongo_user")
+      const connectionDb = await mongoose.connect("mongodb://127.0.0.1:27017/Zoommeet")
+  
+      console.log(`MONGO Connected DB HOst: ${connectionDb.connection.host}`)
+      server.listen(app.get("port"), () => {
+          console.log("LISTENIN ON PORT 3001")
+      });
+  
+  }
 
-const start = async () => {
-    app.set("mongo_user")
-    const connectionDb = await mongoose.connect("mongodb+srv://imdigitalashish:imdigitalashish@cluster0.cujabk4.mongodb.net/")
-
-    console.log(`MONGO Connected DB HOst: ${connectionDb.connection.host}`)
-    server.listen(app.get("port"), () => {
-        console.log("LISTENIN ON PORT 3001")
-    });
-
-
-
-}
 start();
