@@ -1,8 +1,23 @@
 {
+  "name": "zoom",
+  "version": "1.0.0",
+  "description": "A full stack video conferencing web application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mdfarhan-ali/Zoom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mdfarhan-ali/Zoom/issues"
+  },
+  "homepage": "https://github.com/Mdfarhan-ali/Zoom#readme",
   "dependencies": {
-    "build": "^0.1.4",
-    "express": "^5.1.0",
-    "nodemon": "^3.1.10",
-    "run": "^1.5.0"
+    "express": "^5.1.0"
   }
 }
